@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposal_v2025.pdf</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* MINIMALIST CSS RESET & VARS */
+        :root {
+            --bg: #f4f4f0;
+            --text: #1a1a1a;
+            --accent: #ff3b30;
+            --surface: #ffffff;
+            --border: #1a1a1a;
+            --shadow: 4px 4px 0px #1a1a1a;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        /* MAIN CONTAINER */
+        .contract-container {
+            background: var(--surface);
+            border: 2px solid var(--border);
+            box-shadow: var(--shadow);
+            width: 100%;
+            max-width: 500px;
+            padding: 40px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* HEADER */
+        header {
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .meta {
+            font-size: 0.8rem;
+            font-family: monospace;
+            opacity: 0.7;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* CLAUSES LIST */
+        .clauses {
+            list-style: none;
+            counter-reset: clause-counter;
+        }
+
+        .clauses li {
+            margin-bottom: 25px;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .clauses li::before {
+            counter-increment: clause-counter;
+            content: "§" counter(clause-counter);
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .clause-title {
+            font-weight: 700;
+            display: block;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .clause-text {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            opacity: 0.9;
+        }
+
+        /* ACTIONS AREA */
+        .signature-area {
+            margin-top: 40px;
+            border-top: 2px solid var(--border);
+            padding-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .legal-text {
+            font-size: 0.7rem;
+            opacity: 0.6;
+            margin-bottom: 10px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            position: relative;
+            height: 60px; /* Space for buttons */
+        }
+
+        button {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 15px 25px;
+            cursor: pointer;
+            border: 2px solid var(--border);
+            text-transform: uppercase;
+            transition: all 0.1s;
+        }
+
+        .btn-accept {
+            background-color: var(--text);
+            color: var(--bg);
+            flex: 1;
+        }
+
+        .btn-accept:active {
+            transform: translate(2px, 2px);
+            box-shadow: none;
+        }
+
+        .btn-deny {
+            background-color: transparent;
+            color: var(--text);
+            flex: 1;
+            position: relative; /* Important for movement */
+        }
+
+        /* SUCCESS OVERLAY */
+        #success-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--accent);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+            text-align: center;
+        }
+
+        #success-overlay.visible {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .stamp {
+            border: 5px solid white;
+            padding: 20px 40px;
+            font-size: 2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            transform: rotate(-10deg);
+            margin-bottom: 20px;
+            mix-blend-mode: hard-light;
+        }
+
+        .heart-beat {
+            font-size: 4rem;
+            animation: beat 0.8s infinite;
+        }
+
+        @keyframes beat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        /* MOBILE RESPONSIVENESS */
+        @media (max-width: 480px) {
+            .contract-container {
+                padding: 25px;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+                height: auto;
+                gap: 10px;
+            }
+            
+            /* On mobile, we change the deny behavior slightly in JS, 
+               but CSS needs to allow absolute positioning context */
+            .signature-area {
+                position: relative; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="contract-container">
+        <header>
+            <div class="meta">
+                <span>REF: VAL-2025-LUV</span>
+                <span>PRIORITY: CRITICAL</span>
+            </div>
+            <h1>Relationship Agreement</h1>
+            <div class="meta">
+                <span>DATE: FEB 14, 2026</span>
+                <span>STATUS: PENDING</span>
+            </div>
+        </header>
+
+        <ul class="clauses">
+            <li>
+                <span class="clause-title">The "Fries" Provision</span>
+                <span class="clause-text">The Signee acknowledges that "I'm not hungry" is a lie. The Partner is entitled to a 20% "Fry Tax" on all orders.</span>
+            </li>
+            <li>
+                <span class="clause-title">Thermostat Liability</span>
+                <span class="clause-text">The Signee accepts that the Partner's feet are perpetually ice blocks and must be warmed against Signee's back.</span>
+            </li>
+            <li>
+                <span class="clause-title">Binding Resolution</span>
+                <span class="clause-text">By clicking accept, you agree to be my Valentine. This contract is non-refundable and valid for eternity.</span>
+            </li>
+        </ul>
+
+        <div class="signature-area">
+            <p class="legal-text">By clicking below, you waive your right to say "I don't know" when asked where you want to eat.</p>
+            
+            <div class="btn-group">
+                <button class="btn-accept" onclick="acceptProposal()">I Accept Terms</button>
+                <button class="btn-deny" id="denyBtn">Consult Lawyer</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="success-overlay">
+        <div class="stamp">Contract Sealed</div>
+        <div class="heart-beat">❤️</div>
+        <p style="margin-top: 20px; font-family: monospace;">Transaction ID: FOREVER-AND-EVER</p>
+    </div>
+
+    <script>
+        const denyBtn = document.getElementById('denyBtn');
+        const successOverlay = document.getElementById('success-overlay');
+        const width = window.innerWidth;
+
+        // Function to move the button
+        const moveButton = () => {
+            // Get viewport dimensions
+            const x = Math.random() * (window.innerWidth - denyBtn.offsetWidth - 40);
+            const y = Math.random() * (window.innerHeight - denyBtn.offsetHeight - 40);
+
+            // If mobile, we move it absolutely relative to the viewport
+            denyBtn.style.position = 'fixed';
+            denyBtn.style.left = `${x}px`;
+            denyBtn.style.top = `${y}px`;
+            
+            // Change text for extra humor
+            const texts = ["Error 404", "Try Again", "Nice Try", "Cant Escape", "Nope"];
+            denyBtn.innerText = texts[Math.floor(Math.random() * texts.length)];
+            
+            // Change color to warn them
+            denyBtn.style.borderColor = '#ff3b30';
+            denyBtn.style.color = '#ff3b30';
+        };
+
+        // Desktop: Run away on hover
+        denyBtn.addEventListener('mouseover', moveButton);
+
+        // Mobile: Run away on touch start (before they can lift finger to click)
+        denyBtn.addEventListener('touchstart', (e) => {
+            e.preventDefault(); // prevents click
+            moveButton();
+        });
+        
+        // Fallback: If they somehow manage to click it
+        denyBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            alert("Legal Council Unavailable. Defaulting to 'YES'.");
+            acceptProposal();
+        });
+
+        function acceptProposal() {
+            successOverlay.classList.add('visible');
+            
+            // Optional: Add simple confetti effect via text
+            // This keeps the file single and light without external libraries
+            setInterval(() => {
+                const el = document.createElement('div');
+                el.innerText = Math.random() > 0.5 ? '❤️' : '✨';
+                el.style.position = 'fixed';
+                el.style.left = Math.random() * 100 + 'vw';
+                el.style.top = '-20px';
+                el.style.fontSize = Math.random() * 20 + 10 + 'px';
+                el.style.transition = 'top 3s linear, opacity 3s';
+                el.style.zIndex = '99';
+                document.body.appendChild(el);
+
+                setTimeout(() => {
+                    el.style.top = '100vh';
+                    el.style.opacity = '0';
+                }, 100);
+
+                setTimeout(() => {
+                    el.remove();
+                }, 3000);
+            }, 100);
+        }
+    </script>
+</body>
+</html>
