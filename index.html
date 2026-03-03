@@ -1,345 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proposal_v2025.pdf</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
-    
-    <style>
-        /* MINIMALIST CSS RESET & VARS */
-        :root {
-            --bg: #f4f4f0;
-            --text: #1a1a1a;
-            --accent: #ff3b30;
-            --surface: #ffffff;
-            --border: #1a1a1a;
-            --shadow: 4px 4px 0px #1a1a1a;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Lgh Dorfix International Company is a trusted computer hardware and glass door solution expert in Hyderabad, offering IT support and hardware assistance with knowledgeable, friendly staff." />
+  <meta name="keywords" content="computer hardware Hyderabad, glass door solutions Hyderabad, IT support, Lgh Dorfix International Company" />
+  <meta name="author" content="Lgh Dorfix International Company" />
+  <meta property="og:title" content="Lgh Dorfix International Company | Computer Hardware & Glass Door Experts" />
+  <meta property="og:description" content="Trusted Computer Hardware & Glass Door Solution Experts in Hyderabad." />
+  <meta property="og:type" content="website" />
+  <title>Lgh Dorfix International Company | Computer Hardware & Glass Door Experts</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Lgh Dorfix International Company",
+      "description": "Computer hardware company offering glass door related solutions and IT support.",
+      "image": "https://via.placeholder.com/1200x630.png?text=Lgh+Dorfix+International+Company",
+      "telephone": "+91-XXXXXXXXXX",
+      "url": "https://www.example.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Aghapura Rd, Darus Salam, Sitarampet, Nampally",
+        "addressLocality": "Hyderabad",
+        "addressRegion": "Telangana",
+        "postalCode": "500001",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "17.3844",
+        "longitude": "78.4567"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          "opens": "09:00",
+          "closes": "19:00"
         }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        body {
-            font-family: 'Space Grotesk', sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-            overflow-x: hidden;
-        }
-
-        /* MAIN CONTAINER */
-        .contract-container {
-            background: var(--surface);
-            border: 2px solid var(--border);
-            box-shadow: var(--shadow);
-            width: 100%;
-            max-width: 500px;
-            padding: 40px;
-            position: relative;
-            z-index: 10;
-        }
-
-        /* HEADER */
-        header {
-            border-bottom: 2px solid var(--border);
-            padding-bottom: 20px;
-            margin-bottom: 30px;
-        }
-
-        h1 {
-            font-size: 1.8rem;
-            text-transform: uppercase;
-            letter-spacing: -1px;
-            line-height: 1;
-            margin-bottom: 10px;
-        }
-
-        .meta {
-            font-size: 0.8rem;
-            font-family: monospace;
-            opacity: 0.7;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        /* CLAUSES LIST */
-        .clauses {
-            list-style: none;
-            counter-reset: clause-counter;
-        }
-
-        .clauses li {
-            margin-bottom: 25px;
-            position: relative;
-            padding-left: 30px;
-        }
-
-        .clauses li::before {
-            counter-increment: clause-counter;
-            content: "§" counter(clause-counter);
-            position: absolute;
-            left: 0;
-            font-weight: 700;
-            color: var(--accent);
-        }
-
-        .clause-title {
-            font-weight: 700;
-            display: block;
-            margin-bottom: 5px;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-        }
-
-        .clause-text {
-            font-size: 0.95rem;
-            line-height: 1.5;
-            opacity: 0.9;
-        }
-
-        /* ACTIONS AREA */
-        .signature-area {
-            margin-top: 40px;
-            border-top: 2px solid var(--border);
-            padding-top: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .legal-text {
-            font-size: 0.7rem;
-            opacity: 0.6;
-            margin-bottom: 10px;
-        }
-
-        .btn-group {
-            display: flex;
-            gap: 15px;
-            position: relative;
-            height: 60px; /* Space for buttons */
-        }
-
-        button {
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-            font-size: 1rem;
-            padding: 15px 25px;
-            cursor: pointer;
-            border: 2px solid var(--border);
-            text-transform: uppercase;
-            transition: all 0.1s;
-        }
-
-        .btn-accept {
-            background-color: var(--text);
-            color: var(--bg);
-            flex: 1;
-        }
-
-        .btn-accept:active {
-            transform: translate(2px, 2px);
-            box-shadow: none;
-        }
-
-        .btn-deny {
-            background-color: transparent;
-            color: var(--text);
-            flex: 1;
-            position: relative; /* Important for movement */
-        }
-
-        /* SUCCESS OVERLAY */
-        #success-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--accent);
-            z-index: 100;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.5s ease;
-            text-align: center;
-        }
-
-        #success-overlay.visible {
-            opacity: 1;
-            pointer-events: all;
-        }
-
-        .stamp {
-            border: 5px solid white;
-            padding: 20px 40px;
-            font-size: 2rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            transform: rotate(-10deg);
-            margin-bottom: 20px;
-            mix-blend-mode: hard-light;
-        }
-
-        .heart-beat {
-            font-size: 4rem;
-            animation: beat 0.8s infinite;
-        }
-
-        @keyframes beat {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-            100% { transform: scale(1); }
-        }
-
-        /* MOBILE RESPONSIVENESS */
-        @media (max-width: 480px) {
-            .contract-container {
-                padding: 25px;
-            }
-            
-            .btn-group {
-                flex-direction: column;
-                height: auto;
-                gap: 10px;
-            }
-            
-            /* On mobile, we change the deny behavior slightly in JS, 
-               but CSS needs to allow absolute positioning context */
-            .signature-area {
-                position: relative; 
-            }
-        }
-    </style>
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "1"
+      },
+      "review": {
+        "@type": "Review",
+        "author": {
+          "@type": "Person",
+          "name": "Sanwal Singh"
+        },
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5"
+        },
+        "reviewBody": "Knowledgeable Staff. Friendly and approachable employees. Staff with expertise in glass door solutions."
+      }
+    }
+  </script>
 </head>
 <body>
+  <header class="site-header" id="top">
+    <nav class="nav container">
+      <a href="#top" class="logo">Lgh Dorfix International Company</a>
+      <button class="menu-toggle" aria-label="Toggle navigation">☰</button>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#location">Location</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <div class="contract-container">
-        <header>
-            <div class="meta">
-                <span>REF: VAL-2025-LUV</span>
-                <span>PRIORITY: CRITICAL</span>
-            </div>
-            <h1>Relationship Agreement</h1>
-            <div class="meta">
-                <span>DATE: FEB 14, 2026</span>
-                <span>STATUS: PENDING</span>
-            </div>
-        </header>
-
-        <ul class="clauses">
-            <li>
-                <span class="clause-title">The "Fries" Provision</span>
-                <span class="clause-text">The Signee acknowledges that "I'm not hungry" is a lie. The Partner is entitled to a 20% "Fry Tax" on all orders.</span>
-            </li>
-            <li>
-                <span class="clause-title">Thermostat Liability</span>
-                <span class="clause-text">The Signee accepts that the Partner's feet are perpetually ice blocks and must be warmed against Signee's back.</span>
-            </li>
-            <li>
-                <span class="clause-title">Binding Resolution</span>
-                <span class="clause-text">By clicking accept, you agree to be my Valentine. This contract is non-refundable and valid for eternity.</span>
-            </li>
-        </ul>
-
-        <div class="signature-area">
-            <p class="legal-text">By clicking below, you waive your right to say "I don't know" when asked where you want to eat.</p>
-            
-            <div class="btn-group">
-                <button class="btn-accept" onclick="acceptProposal()">I Accept Terms</button>
-                <button class="btn-deny" id="denyBtn">Consult Lawyer</button>
-            </div>
+  <main>
+    <section class="hero section" id="home">
+      <div class="container hero-grid reveal">
+        <div>
+          <p class="eyebrow">Computer Hardware Company • Hyderabad</p>
+          <h1>Trusted Computer Hardware & Glass Door Solution Experts in Hyderabad</h1>
+          <p class="lead">Lgh Dorfix International Company provides dependable hardware services, practical glass door solutions, and friendly professional support tailored for modern businesses.</p>
+          <div class="hero-cta">
+            <a href="tel:+91XXXXXXXXXX" class="btn btn-primary">Call Now</a>
+            <a href="#location" class="btn btn-secondary">Get Directions</a>
+            <a href="#contact" class="btn btn-ghost">Contact Us</a>
+          </div>
         </div>
+        <aside class="rating-card glass-card">
+          <p class="rating-label">Google Rating</p>
+          <p class="rating-value">5.0 ★★★★★</p>
+          <p class="rating-meta">Based on 1 Review</p>
+          <p class="timing">Closed • Opens 9 AM (Wednesday)</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container reveal">
+        <h2>About Us</h2>
+        <p>Lgh Dorfix International Company is known for delivering trustworthy computer hardware solutions and specialized glass door support to clients across Hyderabad.</p>
+        <div class="cards three-col">
+          <article class="glass-card">
+            <h3>Company Overview</h3>
+            <p>We combine technical precision with practical business understanding to provide stable hardware infrastructure and durable installations.</p>
+          </article>
+          <article class="glass-card">
+            <h3>Professional Expertise</h3>
+            <p>Our knowledgeable, friendly, and approachable staff are experienced in diagnosing issues and implementing effective long-term solutions.</p>
+          </article>
+          <article class="glass-card">
+            <h3>Mission & Vision</h3>
+            <p>Our mission is to simplify technology and facility support. Our vision is to become Hyderabad's most trusted service partner for hardware and glass door excellence.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="services">
+      <div class="container reveal">
+        <h2>Services</h2>
+        <div class="cards three-col">
+          <article class="service-card">
+            <h3>Computer Hardware Solutions</h3>
+            <p>Procurement guidance, installations, maintenance, and upgrades for desktops, workstations, and office hardware systems.</p>
+          </article>
+          <article class="service-card">
+            <h3>Glass Door Related Solutions</h3>
+            <p>Expert support for glass door hardware setup, replacement, alignment, and reliability improvements for business spaces.</p>
+          </article>
+          <article class="service-card">
+            <h3>IT Support & Hardware Assistance</h3>
+            <p>Responsive troubleshooting, preventive checks, and practical assistance to keep your operations running smoothly.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="reviews">
+      <div class="container reveal">
+        <h2>Customer Reviews</h2>
+        <div class="review-wrapper glass-card">
+          <p class="rating-value">★★★★★ 5.0</p>
+          <blockquote>
+            “Knowledgeable Staff. Friendly and approachable employees. Staff with expertise in glass door solutions.”
+          </blockquote>
+          <p class="reviewer">— Sanwal Singh</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="location">
+      <div class="container reveal">
+        <h2>Location & Business Hours</h2>
+        <div class="location-grid">
+          <div>
+            <p><strong>Address:</strong> Aghapura Rd, Darus Salam, Sitarampet, Nampally, Hyderabad, Telangana 500001</p>
+            <p><strong>Map Code:</strong> 9FM7+7G Hyderabad, Telangana</p>
+            <p><strong>Timings:</strong> Closed · Opens 9 AM (Wednesday)</p>
+          </div>
+          <div class="map-wrap">
+            <iframe
+              title="Lgh Dorfix International Company Location"
+              src="https://maps.google.com/maps?q=Aghapura%20Rd,%20Darus%20Salam,%20Sitarampet,%20Nampally,%20Hyderabad,%20Telangana%20500001&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container reveal">
+        <h2>Contact Us</h2>
+        <div class="contact-grid">
+          <form class="contact-form glass-card" aria-label="Contact form">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Your Name" required />
+
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" placeholder="+91-XXXXXXXXXX" required />
+
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" required />
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4" placeholder="Tell us your requirement..."></textarea>
+
+            <button class="btn btn-primary" type="submit">Send Message</button>
+          </form>
+
+          <aside class="contact-details">
+            <p><strong>Phone:</strong> +91-XXXXXXXXXX</p>
+            <p><strong>Website:</strong> www.example.com</p>
+            <div class="socials" aria-label="Social media links">
+              <a href="#" aria-label="LinkedIn">in</a>
+              <a href="#" aria-label="Facebook">f</a>
+              <a href="#" aria-label="Instagram">ig</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>Lgh Dorfix International Company</h3>
+        <p>Aghapura Rd, Darus Salam, Sitarampet, Nampally, Hyderabad, Telangana 500001</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#location">Location</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Business Hours</h4>
+        <p>Mon - Sat: 9:00 AM - 7:00 PM</p>
+        <p>Sunday: Closed</p>
+      </div>
     </div>
+  </footer>
 
-    <div id="success-overlay">
-        <div class="stamp">Contract Sealed</div>
-        <div class="heart-beat">❤️</div>
-        <p style="margin-top: 20px; font-family: monospace;">Transaction ID: FOREVER-AND-EVER</p>
-    </div>
+  <a class="whatsapp-btn" href="https://wa.me/910000000000" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">WhatsApp</a>
 
-    <script>
-        const denyBtn = document.getElementById('denyBtn');
-        const successOverlay = document.getElementById('success-overlay');
-        const width = window.innerWidth;
-
-        // Function to move the button
-        const moveButton = () => {
-            // Get viewport dimensions
-            const x = Math.random() * (window.innerWidth - denyBtn.offsetWidth - 40);
-            const y = Math.random() * (window.innerHeight - denyBtn.offsetHeight - 40);
-
-            // If mobile, we move it absolutely relative to the viewport
-            denyBtn.style.position = 'fixed';
-            denyBtn.style.left = `${x}px`;
-            denyBtn.style.top = `${y}px`;
-            
-            // Change text for extra humor
-            const texts = ["Error 404", "Try Again", "Nice Try", "Cant Escape", "Nope"];
-            denyBtn.innerText = texts[Math.floor(Math.random() * texts.length)];
-            
-            // Change color to warn them
-            denyBtn.style.borderColor = '#ff3b30';
-            denyBtn.style.color = '#ff3b30';
-        };
-
-        // Desktop: Run away on hover
-        denyBtn.addEventListener('mouseover', moveButton);
-
-        // Mobile: Run away on touch start (before they can lift finger to click)
-        denyBtn.addEventListener('touchstart', (e) => {
-            e.preventDefault(); // prevents click
-            moveButton();
-        });
-        
-        // Fallback: If they somehow manage to click it
-        denyBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            alert("Legal Council Unavailable. Defaulting to 'YES'.");
-            acceptProposal();
-        });
-
-        function acceptProposal() {
-            successOverlay.classList.add('visible');
-            
-            // Optional: Add simple confetti effect via text
-            // This keeps the file single and light without external libraries
-            setInterval(() => {
-                const el = document.createElement('div');
-                el.innerText = Math.random() > 0.5 ? '❤️' : '✨';
-                el.style.position = 'fixed';
-                el.style.left = Math.random() * 100 + 'vw';
-                el.style.top = '-20px';
-                el.style.fontSize = Math.random() * 20 + 10 + 'px';
-                el.style.transition = 'top 3s linear, opacity 3s';
-                el.style.zIndex = '99';
-                document.body.appendChild(el);
-
-                setTimeout(() => {
-                    el.style.top = '100vh';
-                    el.style.opacity = '0';
-                }, 100);
-
-                setTimeout(() => {
-                    el.remove();
-                }, 3000);
-            }, 100);
-        }
-    </script>
+  <script src="script.js" defer></script>
 </body>
 </html>
